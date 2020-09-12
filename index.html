@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Learn JavaScript</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/modernizr.2.5.3.min.js"></script>
+</head>
+
+<body>
+	<div style="text-align:center;padding:15px;">Gira la página →</div>
+	<div class="flipbook-viewport">
+		<div class="container">
+			<div class="flipbook">
+				<script>
+					for (let i = 0; i <= 100; i++) {
+						$('<div/>', {
+							style: 'background-image: url(images/JavaScript' + i + '.jpg)'
+						}).appendTo('.flipbook');
+						console.log(i);
+					}
+
+					function loadApp() {
+						$('.flipbook').turn({
+							width: 922,
+							height: 580,
+							elevation: 50,
+							gradients: true,
+							autoCenter: true
+						});
+					}
+
+					yepnope({
+						test: Modernizr.csstransforms,
+						yep: ['lib/turn.js'],
+						both: ['css/basic.css'],
+						complete: loadApp
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+	</script>
+</body>
+
+</html>
